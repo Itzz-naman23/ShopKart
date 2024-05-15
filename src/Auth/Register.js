@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react'
 import Layout from '../Layout/Layout'
 import toast from 'react-hot-toast';
 import { useNavigate, Link } from 'react-router-dom';
+import Server from '../server/server';
 
 
 const Register = () => {
@@ -15,7 +16,7 @@ const Register = () => {
 
     //set user data at initial time
     useEffect(() => {
-        fetch('http://localhost:5000/users')
+        fetch(`${Server}/users`)
             .then(res => res.json)
             .then(data => setUser(data))
 
@@ -83,7 +84,7 @@ const Register = () => {
 
 
             console.log(regdata)
-            fetch('http://localhost:5000/users', {
+            fetch(`${Server}/users`, {
                 method: 'POST',
                 headers: { 'content-type': 'application/json' },
                 body: JSON.stringify(regdata)

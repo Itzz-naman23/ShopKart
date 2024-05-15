@@ -5,6 +5,7 @@ import Layout from '../Layout/Layout'
 import toast from 'react-hot-toast';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import Server from '../server/server';
 
 
 const Login = () => {
@@ -35,7 +36,7 @@ const Login = () => {
         e.preventDefault()
         if (Validate()) {
             //user Credentials authentication
-            fetch(`http://localhost:5000/users/` + email)
+            fetch(`${Server}/users/` + email)
                 .then((res) => {
                     return res.json()
                 }).then((data) => {

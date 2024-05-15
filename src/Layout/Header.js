@@ -7,6 +7,7 @@ import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import { useCart } from '../context/cart';
 import { useFav } from '../context/favorite';
+import Server from '../server/server';
 
 
 
@@ -34,7 +35,7 @@ const Header = () => {
             let data = JSON.parse(favitems)
             console.log(data)
 
-            fetch('http://localhost:5000/favourites', {
+            fetch(`${Server}/favourites`, {
                 method: 'POST',
                 headers: { 'content-type': 'application/json' },
                 body: JSON.stringify(data)

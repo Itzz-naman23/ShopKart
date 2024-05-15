@@ -8,6 +8,7 @@ import toast from 'react-hot-toast';
 //import { v4 as uuid } from "uuid";
 import { useNavigate } from 'react-router-dom';
 import Orders from './Orders';
+import Server from '../server/server';
 // import Item from 'antd/es/list/Item';
 const CartPage = () => {
     const navigate = useNavigate()
@@ -77,7 +78,7 @@ const CartPage = () => {
     const placeOrder = () => {
 
         //console.log("inside placeorder func")
-        fetch('http://localhost:5000/orders', {
+        fetch(`${Server}/orders`, {
             method: "POST",
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(order)

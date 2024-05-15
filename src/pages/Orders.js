@@ -2,6 +2,7 @@
 
 import Layout from '../Layout/Layout'
 import React, { useEffect, useState } from 'react'
+import Server from '../server/server'
 
 const Orders = () => {
 
@@ -9,7 +10,7 @@ const Orders = () => {
 
     //getting all orders on iniltail time from JSON Server
     useEffect(() => {
-        fetch('http://localhost:5000/orders')
+        fetch(`${Server}/orders`)
             .then((res) => res.json())
             .then(data => setOrder(data))
     }, [])

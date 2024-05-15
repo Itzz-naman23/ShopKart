@@ -8,6 +8,7 @@ import { FaHeartCircleCheck } from "react-icons/fa6";
 import { useCart } from '../context/cart';
 import toast from 'react-hot-toast';
 import { useFav } from '../context/favorite';
+import Server from '../server/server';
 
 const Product = () => {
     const params = useParams()
@@ -18,7 +19,7 @@ const Product = () => {
 
     //Fetching The desired product on initial time based on its id
     useEffect(() => {
-        fetch(`http://localhost:5000/products/${params?.id}`)
+        fetch(`${Server}/products/${params?.id}`)
             .then(res => res.json())
             .then(data => setProduct(data))
 

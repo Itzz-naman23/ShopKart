@@ -7,6 +7,7 @@ import { FaRegHeart } from "react-icons/fa";
 import { FaHeartCircleCheck } from "react-icons/fa6";
 import { useCart } from '../context/cart';
 import toast from 'react-hot-toast';
+import Server from '../server/server';
 //import { useFav } from '../context/favorite';
 
 
@@ -23,7 +24,7 @@ const HomePage = () => {
 
     //getting all products on Initial time from JSON Server
     useEffect(() => {
-        fetch('http://localhost:5000/products')
+        fetch(`${Server}/products`)
             .then(res => res.json())
             .then(data => setProducts(data))
     }, [])
