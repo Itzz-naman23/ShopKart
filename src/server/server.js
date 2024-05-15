@@ -1,2 +1,2 @@
-const Server = 'http://localhost:5000'
+const Server = 'https://shopkart-k1mw.onrender.com'
 export default Server
